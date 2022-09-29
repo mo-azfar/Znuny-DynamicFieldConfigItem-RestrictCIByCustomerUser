@@ -5,9 +5,9 @@
 1. Create dynamic field config item.
 2. Update System Configuration > Ticket::Acl::Module###5-ZnunyRestrictCIByCustomerUser
 
-	CIFieldNameReference = Key field in Config Item that hold customer user id. By default, Owner.
+		CIFieldNameReference = Key field in Config Item that hold customer user id. By default, Owner.
 	
-	RelatedDynamicField  = DynamicField ConfigItem name that will use this ACL to restrict its config item.
+		RelatedDynamicField  = DynamicField ConfigItem name that will use this ACL to restrict its config item.
 	
-	Action = Screen where this ACL will be apply.
+		Action = Screen where this ACL will be apply.
 
