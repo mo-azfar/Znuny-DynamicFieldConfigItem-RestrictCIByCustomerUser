@@ -10,4 +10,6 @@
 		RelatedDynamicField  = DynamicField ConfigItem name that will use this ACL to restrict its config item.
 	
 		Action = Screen where this ACL will be apply.
+		
 
+![](https://github.com/mo-azfar/Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser/blob/main/DFCI.gif)
