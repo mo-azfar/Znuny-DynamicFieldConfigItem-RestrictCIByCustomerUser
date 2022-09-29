@@ -1,5 +1,5 @@
 # --
-# Copyright (C) 2022 mo-azfar, Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser
+# Copyright (C) 2022 mo-azfar, https://github.com/mo-azfar/Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser/
 #
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
