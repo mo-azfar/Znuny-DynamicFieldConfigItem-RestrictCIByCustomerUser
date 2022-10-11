@@ -51,11 +51,22 @@ sub Run {
     my $DynamicFieldObject = $Kernel::OM->Get('Kernel::System::DynamicField');
 	my $CustomerUserID = $Param{Checks}->{CustomerUser}->{UserLogin};
 	
+	my $ACLGenerate = 0;
+    ACL:
+	
 	#only generate acl based on define frontend action
 	for (@{$Param{Config}->{Action}})
 	{
 		next if $Param{Checks}->{Frontend}->{Action} ne $_;
 		
+		if ( $Param{Checks}->{Frontend}->{Action} eq $_ ) {
+            $ACLGenerate = 1;
+            last ACL;
+        }
+	}
+	
+	if ( $ACLGenerate )
+	{	
 		for (@{$Param{Config}->{RelatedDynamicField}})
 		{
 			my $DynamicField = $DynamicFieldObject->DynamicFieldGet(
