@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+      <Name>Znuny-DynamicFieldConfigItem-Restrict-ACL</Name>
+      <Version>1.0.2</Version>
+	  <Framework>6.4.x</Framework>
+	  <PackageRequired Version="6.4.1">Znuny-DynamicFieldConfigItem</PackageRequired>
+	  <Vendor>mo-azfar</Vendor>
+      <URL>https://github.com/mo-azfar/</URL>
+      <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
+      <ChangeLog Version="1.0.1" Date="2022-09-29 00:00:01">New package.</ChangeLog>
+	  <ChangeLog Version="1.0.1" Date="2022-09-29 00:00:01">Update code.</ChangeLog>
+      <Description Lang="en">System ACL that restrict DynamicFieldConfigItem value based on customer user.</Description>
+      <Filelist>
+         <File Permission="660" Location="Kernel/Config/Files/XML/ZZZZnunyRestrictCIByCustomerUser.xml"></File>
+         <File Permission="660" Location="Custom/Kernel/System/Ticket/Acl/ZnunyRestrictCIByCustomerUser.pm"></File>
+      </Filelist>
+	  <IntroInstall Type="pre" Title="Install Information" Lang="en"><![CDATA[
+        <br>
+        <b>WELCOME</b>
+        <br>
+        <br>
+        You are about to install the package Znuny-DynamicFieldConfigItem-Restrict-ACL.<br>
+        <br>
+		1. Create dynamic field config item.<br>
+		2. Update System Configuration > Ticket::Acl::Module###5-ZnunyRestrictCIByCustomerUser.<br>
+		<br>
+		<b>CIFieldNameReference</b> - Key field in Config Item that hold customer user id. By default, Owner.<br>
+		<b>RelatedDynamicField</b>  - DynamicField ConfigItem name that will use this ACL to restrict its config item.<br>
+		<b>Action</b> - Screen where this ACL will be apply.
+        <br>
+        <br>
+        <br>
+    ]]></IntroInstall>
+</otrs_package>
