@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otrs_package version="1.0">
       <Name>Znuny-DynamicFieldConfigItem-Restrict-ACL</Name>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
 	  <Framework>6.4.x</Framework>
 	  <PackageRequired Version="6.4.1">Znuny-DynamicFieldConfigItem</PackageRequired>
 	  <Vendor>mo-azfar</Vendor>
@@ -9,6 +9,7 @@
       <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
       <ChangeLog Version="1.0.1" Date="2022-09-29 00:00:01">New package.</ChangeLog>
 	  <ChangeLog Version="1.0.2" Date="2022-10-24 00:00:01">Update code.</ChangeLog>
+	  <ChangeLog Version="1.0.3" Date="2022-12-06 00:00:01">Update to include CI Deployment State from XML config.</ChangeLog>
       <Description Lang="en">System ACL that restrict DynamicFieldConfigItem value based on customer user.</Description>
       <Filelist>
          <File Permission="660" Location="Kernel/Config/Files/XML/ZZZZnunyRestrictCIByCustomerUser.xml"></File>
@@ -26,7 +27,8 @@
 		<br>
 		<b>CIFieldNameReference</b> - Key field in Config Item that hold customer user id. By default, Owner.<br>
 		<b>RelatedDynamicField</b>  - DynamicField ConfigItem name that will use this ACL to restrict its config item.<br>
-		<b>Action</b> - Screen where this ACL will be apply.
+		<b>Action</b> - Screen where this ACL will be apply.<br>
+		<b> DeplState</b> - Config item deployment state (Support multiple deployment state by (+) button). If empty, deployment state will be taken from defined Dynamic Field config itself.
         <br>
         <br>
         <br>

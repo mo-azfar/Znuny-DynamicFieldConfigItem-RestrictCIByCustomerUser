@@ -86,14 +86,30 @@ sub Run {
 			
 			push @ClassIDs, $ClassID->{ItemID};
 			
-			#get config item deployment state id based on dynamic field
-			for ( @{$DynamicField->{Config}->{DeplStates}} )
+			#get deployment state
+			if (@{$Param{Config}->{DeplState}})
 			{
-				my $DeplStateID = $GeneralCatalogObject->ItemGet(
-					Class => 'ITSM::ConfigItem::DeploymentState',
-					Name  => $_,
-				);
-				push @DeplStateIDs, $DeplStateID->{ItemID};
+				#get config item deployment state id based on config
+				for (@{$Param{Config}->{DeplState}})
+				{
+					my $DeplStateID = $GeneralCatalogObject->ItemGet(
+						Class => 'ITSM::ConfigItem::DeploymentState',
+						Name  => $_,
+					);
+					push @DeplStateIDs, $DeplStateID->{ItemID};
+				}
+			}
+			else
+			{
+				#get config item deployment state id based on dynamic field
+				for ( @{$DynamicField->{Config}->{DeplStates}} )
+				{
+					my $DeplStateID = $GeneralCatalogObject->ItemGet(
+						Class => 'ITSM::ConfigItem::DeploymentState',
+						Name  => $_,
+					);
+					push @DeplStateIDs, $DeplStateID->{ItemID};
+				}
 			}
 			
 			#search config item

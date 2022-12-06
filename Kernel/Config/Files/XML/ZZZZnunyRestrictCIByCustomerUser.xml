@@ -15,6 +15,10 @@
 					</Array>
                 </Item>
 				<Item Key="CIFieldNameReference">Owner</Item>
+				<Item Key="DeplState">
+                    <Array>
+					</Array>
+                </Item>
 				<Item Key="RelatedDynamicField">
                     <Array>
 						<Item>RelatedCI</Item>
