@@ -1,6 +1,7 @@
 # Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser
 - Restrict the value of dynamic field config item based on customer user
-- Required Znuny 6.4.3 and addon Znuny-DynamicFieldConfigItem 6.4.1 (at least)
+- For Znuny 6.4.3, addon Znuny-DynamicFieldConfigItem 6.4.1 required (at least)
+- For Znuny 6.5.x and above, the addon already intergrated in ITSM Configuration Management addon. 
 
 1. Create dynamic field config item.
 2. Update System Configuration > Ticket::Acl::Module###5-ZnunyRestrictCIByCustomerUser
