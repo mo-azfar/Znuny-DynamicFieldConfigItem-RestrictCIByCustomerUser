@@ -11,6 +11,7 @@
       <ChangeLog Version="1.0.1" Date="2022-09-29 00:00:01">New package.</ChangeLog>
 	  <ChangeLog Version="1.0.2" Date="2022-10-24 00:00:01">Update code.</ChangeLog>
 	  <ChangeLog Version="1.0.3" Date="2022-12-06 00:00:01">Update to include CI Deployment State from XML config.</ChangeLog>
+	  <ChangeLog Version="6.5.1" Date="2023-04-07 00:00:01">Update supported framework 6.5.x. Update version to reflex latest supported framework</ChangeLog>
       <Description Lang="en">System ACL that restrict DynamicFieldConfigItem value based on customer user.</Description>
       <Filelist>
          <File Permission="660" Location="Kernel/Config/Files/XML/ZZZZnunyRestrictCIByCustomerUser.xml"></File>
