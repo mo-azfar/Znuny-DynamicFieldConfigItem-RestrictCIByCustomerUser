@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <otrs_package version="1.0">
       <Name>Znuny-DynamicFieldConfigItem-Restrict-ACL</Name>
-      <Version>1.0.3</Version>
+      <Version>6.5.1</Version>
 	  <Framework>6.4.x</Framework>
+	  <Framework>6.5.x</Framework>
 	  <PackageRequired Version="6.4.1">Znuny-DynamicFieldConfigItem</PackageRequired>
 	  <Vendor>mo-azfar</Vendor>
       <URL>https://github.com/mo-azfar/</URL>
