@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_config version="2.0" init="Config">
-    <Setting Name="Ticket::Acl::Module###5-ZnunyRestrictCIByCustomerUser" Required="0" Valid="1">
+    <Setting Name="Ticket::Acl::Module###5-RestrictDFCIByCustomerUser" Required="0" Valid="1">
         <Description Translatable="1">System based ACL module that show Dynamic Field Config Item value based on Customer User</Description>
         <Navigation>Core::Ticket::ACL</Navigation>
         <Value>
             <Hash>
-                <Item Key="Module">Kernel::System::Ticket::Acl::ZnunyRestrictCIByCustomerUser</Item>
+                <Item Key="Module">Kernel::System::Ticket::Acl::RestrictDFCIByCustomerUser</Item>
 				<Item Key="Action">
                     <Array>
 						<Item>AgentTicketPhone</Item>
@@ -16,6 +16,10 @@
                 </Item>
 				<Item Key="CIFieldNameReference">Owner</Item>
 				<Item Key="DeplState">
+                    <Array>
+					</Array>
+                </Item>
+				<Item Key="InciState">
                     <Array>
 					</Array>
                 </Item>

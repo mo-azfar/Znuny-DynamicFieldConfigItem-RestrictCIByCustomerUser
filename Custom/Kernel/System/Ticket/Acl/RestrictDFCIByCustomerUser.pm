@@ -6,7 +6,7 @@
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
-package Kernel::System::Ticket::Acl::ZnunyRestrictCIByCustomerUser;
+package Kernel::System::Ticket::Acl::RestrictDFCIByCustomerUser;
 
 use strict;
 use warnings;
@@ -77,6 +77,7 @@ sub Run {
 			
 			my @ClassIDs;
 			my @DeplStateIDs;
+			my @InciStateIDs;
 			
 			#get config item class id based on dynamic field	
 			my $ClassID = $GeneralCatalogObject->ItemGet(
@@ -112,10 +113,25 @@ sub Run {
 				}
 			}
 			
+			#get incident state
+			if (@{$Param{Config}->{InciState}})
+			{
+				#get config item deployment state id based on config
+				for (@{$Param{Config}->{InciState}})
+				{
+					my $DeplStateID = $GeneralCatalogObject->ItemGet(
+						Class => 'ITSM::Core::IncidentState',
+						Name  => $_,
+					);
+					push @InciStateIDs, $DeplStateID->{ItemID};
+				}
+			}
+			
 			#search config item
 			my $ConfigItemIDs = $ConfigItemObject->ConfigItemSearchExtended(
 				ClassIDs => [@ClassIDs], 
 				DeplStateIDs => [@DeplStateIDs], 
+				InciStateIDs => [@InciStateIDs],
 				What => [                                               
 					# each array element is a and condition
 					{			
