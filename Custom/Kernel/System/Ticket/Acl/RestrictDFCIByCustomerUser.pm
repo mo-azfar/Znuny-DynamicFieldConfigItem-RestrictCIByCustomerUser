@@ -57,7 +57,8 @@ sub Run {
 	#only generate acl based on define frontend action
 	for (@{$Param{Config}->{Action}})
 	{
-		next if $Param{Checks}->{Frontend}->{Action} ne $_;
+		$Param{Checks}->{Frontend}->{Action} ||= 0;
+        next if $Param{Checks}->{Frontend}->{Action} ne $_;
 		
 		if ( $Param{Checks}->{Frontend}->{Action} eq $_ ) {
             $ACLGenerate = 1;
