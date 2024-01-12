@@ -42,14 +42,17 @@ sub Run {
     }
 
 	return 1 if !$Param{Checks}->{CustomerUser}->{UserLogin};
-	return 1 if !$Param{Config}->{CIFieldNameReference};
-	return 1 if !@{$Param{Config}->{RelatedDynamicField}};
-	return 1 if !@{$Param{Config}->{Action}};
-	
+
+    #get paremeter
+	my %GetParam;
+    for my $Needed ( qw( CIFieldNameReference RelatedDynamicField Action ObjectType ) )
+	{
+        return 1 if !$Param{Config}->{$Needed};
+	}
+
 	my $GeneralCatalogObject = $Kernel::OM->Get('Kernel::System::GeneralCatalog');
 	my $ConfigItemObject = $Kernel::OM->Get('Kernel::System::ITSMConfigItem');
     my $DynamicFieldObject = $Kernel::OM->Get('Kernel::System::DynamicField');
-	my $CustomerUserID = $Param{Checks}->{CustomerUser}->{UserLogin};
 	
 	my $ACLGenerate = 0;
     ACL:
@@ -68,7 +71,7 @@ sub Run {
 	
 	if ( $ACLGenerate )
 	{	
-		for (@{$Param{Config}->{RelatedDynamicField}})
+        for (@{$Param{Config}->{RelatedDynamicField}})
 		{
 			my $DynamicField = $DynamicFieldObject->DynamicFieldGet(
 				Name => $_,
@@ -128,6 +131,22 @@ sub Run {
 				}
 			}
 			
+            my $Customer;
+            my $Properties;
+
+            #customer user based
+            if ( $Param{Config}->{ObjectType} eq 1 )
+            {
+                $Properties = "UserLogin";
+                $Customer = $Param{Checks}->{CustomerUser}->{UserLogin};
+            }
+            #customer company based
+            elsif ( $Param{Config}->{ObjectType} eq 2 )
+            {
+                $Properties = "UserCustomerID";
+                $Customer = $Param{Checks}->{CustomerUser}->{UserCustomerID};
+            }
+
 			#search config item
 			my $ConfigItemIDs = $ConfigItemObject->ConfigItemSearchExtended(
 				ClassIDs => [@ClassIDs], 
@@ -136,18 +155,18 @@ sub Run {
 				What => [                                               
 					# each array element is a and condition
 					{			
-						"[%]{'Version'}[%]{'$Param{Config}->{CIFieldNameReference}'}[%]{'Content'}" => [$CustomerUserID],				
+						"[%]{'Version'}[%]{'$Param{Config}->{CIFieldNameReference}'}[%]{'Content'}" => [$Customer],				
 					}
 				],
 		
 			);
 	
-			my $ACLName = 'ACL_'.$CustomerUserID.'_'.$_;
+			my $ACLName = 'ACL_'.$Customer.'_'.$_;
 	
 			$Param{Acl}->{$ACLName} = {
 				Properties => {
 					CustomerUser => {
-						UserLogin => [ $CustomerUserID ],
+						$Properties => [ $Customer ],
 					},
 				},
 		
@@ -158,11 +177,9 @@ sub Run {
 					},
 				},
 			};
-			
-			
+				
 		}
-		
-		
+			
 	}
 	
     return 1;
