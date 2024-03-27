@@ -20,4 +20,4 @@
 	
 		
 
-![](https://github.com/mo-azfar/Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser/blob/main/DFCI.gif)
+![gif_image](doc/en/images/DFCI.gif)

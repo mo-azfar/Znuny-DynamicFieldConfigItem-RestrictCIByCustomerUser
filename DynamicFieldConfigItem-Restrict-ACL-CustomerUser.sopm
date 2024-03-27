@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.1">
+    <Name>DynamicFieldConfigItem-Restrict-ACL-CustomerUser</Name>
+    <Version>7.0.8</Version>
+    <Vendor>mo-azfar</Vendor>
+    <URL>https://github.com/mo-azfar</URL>
+    <License>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</License>
+    <ChangeLog Version="7.0.1">New package.</ChangeLog>
+    <ChangeLog Version="7.0.2">Update code.</ChangeLog>
+    <ChangeLog Version="7.0.3">Update to include CI Deployment State from XML config.</ChangeLog>
+    <ChangeLog Version="7.0.4">Update supported framework 6.5.x. Update version to reflex latest supported framework</ChangeLog>
+    <ChangeLog Version="7.0.5">Update supported framework 7.0.x. Filename changes and add support for Incident state.</ChangeLog>
+    <ChangeLog Version="7.0.6">Fix for `Use of uninitialized value` notice.</ChangeLog>
+    <ChangeLog Version="7.0.7">Add support for customer company.</ChangeLog>
+    <ChangeLog Version="7.0.8">Applied code policy.</ChangeLog>
+    <Description Lang="en">System ACL that restrict DynamicFieldConfigItem value based on customer user.</Description>
+    <Framework>6.4.x</Framework>
+    <Framework>6.5.x</Framework>
+    <Framework>7.0.x</Framework>
+    <IntroInstall Lang="en" Title="Install Information" Type="pre"><![CDATA[
+        <br>
+        <br><br>WELCOME<br><br>;
+        <br><br>
+        <br><br>
+        You are about to install the package DynamicFieldConfigItem-Restrict-ACL-CustomerUser. <a href='https://github.com/mo-azfar/Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser' target='_blank'>README</a><br>
+        <br>
+        <br>
+        <br>
+    ]]></IntroInstall>
+    <IntroUpgrade Lang="en" Title="Upgrade Information" Type="pre"><![CDATA[
+        <br>
+        <br><br>WELCOME<br><br>;
+        <br><br>
+        <br><br>
+        You are about to upgrade the package DynamicFieldConfigItem-Restrict-ACL-CustomerUser. <a href='https://github.com/mo-azfar/Znuny-DynamicFieldConfigItem-RestrictCIByCustomerUser' target='_blank'>README</a><br>
+        <br>
+        <br>
+        <b>Please reset and reconfigure Admin > System Configuration > Ticket::Acl::Module###5-RestrictDFCIByCustomerUser
+        <br>
+    ]]></IntroUpgrade>
+    <Filelist>
+        <File Permission="660" Location="Kernel/Config/Files/XML/ZZZRestrictDFCIByCustomerUser.xml"></File>
+        <File Permission="660" Location="Kernel/System/Ticket/Acl/RestrictDFCIByCustomerUser.pm"></File>
+    </Filelist>
+</otrs_package>
